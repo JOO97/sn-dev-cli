@@ -12,6 +12,7 @@ program
   .description("create a hook file")
   .argument("<hook-name>", "hook name")
   .option("-t, --tool <name>", "name of sn-cp-tools")
+  .option("-d, --dest <path>", "dest")
   .option("-r, --repo <repo-url>", "repo url")
   .action((name, options) => {
     const args = minimist(process.argv.slice(3));
