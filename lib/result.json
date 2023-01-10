@@ -1,0 +1,570 @@
+{
+    "style": {
+        "name": "样式配置",
+        "children": {
+            "cursor": {
+                "type": "number",
+                "name": "鼠标样式",
+                "default": "text",
+                "step": 1,
+                "min": 0,
+                "max": 100
+            },
+            "padding": {
+                "default": {
+                    "top": 0,
+                    "bottom": 0,
+                    "left": 0,
+                    "right": 0
+                },
+                "type": "padding",
+                "name": "边距"
+            },
+            "overflow": {
+                "name": "溢出",
+                "type": "group",
+                "fold": false,
+                "children": {
+                    "type": {
+                        "type": "number",
+                        "name": "类型",
+                        "default": "scroll",
+                        "step": 1,
+                        "min": 0,
+                        "max": 100
+                    },
+                    "ellipsis": {
+                        "name": "ellipsis",
+                        "type": "group",
+                        "fold": false,
+                        "children": {
+                            "column": {
+                                "type": "number",
+                                "name": "列",
+                                "default": 2,
+                                "step": 1,
+                                "min": 0,
+                                "max": 100
+                            }
+                        }
+                    },
+                    "scroll": {
+                        "name": "scroll",
+                        "type": "group",
+                        "fold": false,
+                        "children": {
+                            "size": {
+                                "type": "number",
+                                "name": "大小",
+                                "default": 6,
+                                "step": 1,
+                                "min": 0,
+                                "max": 100
+                            },
+                            "radius": {
+                                "type": "number",
+                                "name": "圆角",
+                                "default": 10,
+                                "step": 1,
+                                "min": 0,
+                                "max": 100
+                            },
+                            "bg": {
+                                "type": "number",
+                                "name": "背景",
+                                "default": "rgba(255, 255, 255, 0.2)",
+                                "step": 1,
+                                "min": 0,
+                                "max": 100
+                            },
+                            "hover": {
+                                "name": "鼠标经过样式",
+                                "type": "group",
+                                "fold": false,
+                                "children": {
+                                    "bg": {
+                                        "type": "number",
+                                        "name": "背景",
+                                        "default": "rgba(255, 255, 255, 0.3)",
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "text": {
+                "name": "文本",
+                "type": "group",
+                "fold": false,
+                "children": {
+                    "lh": {
+                        "type": "number",
+                        "name": "lh",
+                        "default": 24,
+                        "step": 1,
+                        "min": 0,
+                        "max": 100
+                    },
+                    "color": {
+                        "type": "number",
+                        "name": "颜色",
+                        "default": "rgba(51, 172, 255, 1)",
+                        "step": 1,
+                        "min": 0,
+                        "max": 100
+                    },
+                    "gradient": {
+                        "name": "渐变",
+                        "type": "group",
+                        "fold": false,
+                        "children": {
+                            "color": {
+                                "type": "number",
+                                "name": "颜色",
+                                "default": "linear-gradient(90deg, rgb(35, 255, 255) 0%, rgba(88, 142, 233, 0.5) 100%)",
+                                "step": 1,
+                                "min": 0,
+                                "max": 100
+                            }
+                        }
+                    },
+                    "shadow": {
+                        "name": "阴影",
+                        "type": "group",
+                        "fold": false,
+                        "children": {
+                            "value": {
+                                "type": "number",
+                                "name": "value",
+                                "default": "1px 0px 10px rgb(85 138 187)",
+                                "step": 1,
+                                "min": 0,
+                                "max": 100
+                            }
+                        }
+                    },
+                    "size": {
+                        "type": "number",
+                        "name": "大小",
+                        "default": 16,
+                        "step": 1,
+                        "min": 0,
+                        "max": 100
+                    },
+                    "family": {
+                        "type": "number",
+                        "name": "字体",
+                        "default": "Microsoft Yahei",
+                        "step": 1,
+                        "min": 0,
+                        "max": 100
+                    },
+                    "weight": {
+                        "type": "number",
+                        "name": "粗细",
+                        "default": "500",
+                        "step": 1,
+                        "min": 0,
+                        "max": 100
+                    },
+                    "indent": {
+                        "type": "number",
+                        "name": "缩进",
+                        "default": 20,
+                        "step": 1,
+                        "min": 0,
+                        "max": 100
+                    },
+                    "spacing": {
+                        "type": "number",
+                        "name": "文本间距",
+                        "default": 2,
+                        "step": 1,
+                        "min": 0,
+                        "max": 100
+                    },
+                    "decoration": {
+                        "style": {
+                            "default": "solid"
+                        },
+                        "color": {
+                            "default": "rgba(255,255,255,0.8)"
+                        },
+                        "line": {
+                            "default": "none"
+                        },
+                        "name": "修饰线",
+                        "type": "group",
+                        "children": {
+                            "style": {
+                                "name": "样式",
+                                "type": "select",
+                                "options": [
+                                    {
+                                        "value": "none",
+                                        "label": "无"
+                                    },
+                                    {
+                                        "value": "solid",
+                                        "label": "实线"
+                                    },
+                                    {
+                                        "value": "double",
+                                        "label": "双实线"
+                                    },
+                                    {
+                                        "value": "dotted",
+                                        "label": "圆点"
+                                    },
+                                    {
+                                        "value": "dashed",
+                                        "label": "虚线"
+                                    },
+                                    {
+                                        "value": "wavy",
+                                        "label": "波浪线"
+                                    }
+                                ],
+                                "default": "solid",
+                                "col": 12
+                            },
+                            "color": {
+                                "name": "颜色",
+                                "type": "color",
+                                "default": "rgba(255,255,255,0.8)",
+                                "col": 12
+                            },
+                            "line": {
+                                "name": "类型",
+                                "type": "select",
+                                "options": [
+                                    {
+                                        "name": "下划线",
+                                        "value": "underline"
+                                    },
+                                    {
+                                        "name": "上划线",
+                                        "value": "overline"
+                                    },
+                                    {
+                                        "name": "删除线",
+                                        "value": "line-through"
+                                    }
+                                ],
+                                "default": "underline",
+                                "col": 12
+                            }
+                        }
+                    },
+                    "hover": {
+                        "name": "鼠标经过样式",
+                        "type": "group",
+                        "fold": false,
+                        "children": {
+                            "color": {
+                                "type": "number",
+                                "name": "颜色",
+                                "default": "rgba(255,255,255,1)",
+                                "step": 1,
+                                "min": 0,
+                                "max": 100
+                            },
+                            "gradient": {
+                                "name": "渐变",
+                                "type": "group",
+                                "fold": false,
+                                "children": {
+                                    "color": {
+                                        "type": "number",
+                                        "name": "颜色",
+                                        "default": "linear-gradient(90deg, rgb(35, 255, 255) 0%, rgba(88, 142, 233, 0.5) 100%)",
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    }
+                                }
+                            },
+                            "shadow": {
+                                "name": "阴影",
+                                "type": "group",
+                                "fold": false,
+                                "children": {
+                                    "value": {
+                                        "type": "number",
+                                        "name": "value",
+                                        "default": "1px 0px 10px rgb(85, 138, 187)",
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    }
+                                }
+                            },
+                            "weight": {
+                                "type": "number",
+                                "name": "粗细",
+                                "default": "500",
+                                "step": 1,
+                                "min": 0,
+                                "max": 100
+                            },
+                            "decoration": {
+                                "style": {
+                                    "default": "solid"
+                                },
+                                "color": {
+                                    "default": "rgba(255,255,255,0.3)"
+                                },
+                                "line": {
+                                    "default": "underline"
+                                },
+                                "name": "修饰线",
+                                "type": "group",
+                                "children": {
+                                    "style": {
+                                        "name": "样式",
+                                        "type": "select",
+                                        "options": [
+                                            {
+                                                "value": "none",
+                                                "label": "无"
+                                            },
+                                            {
+                                                "value": "solid",
+                                                "label": "实线"
+                                            },
+                                            {
+                                                "value": "double",
+                                                "label": "双实线"
+                                            },
+                                            {
+                                                "value": "dotted",
+                                                "label": "圆点"
+                                            },
+                                            {
+                                                "value": "dashed",
+                                                "label": "虚线"
+                                            },
+                                            {
+                                                "value": "wavy",
+                                                "label": "波浪线"
+                                            }
+                                        ],
+                                        "default": "solid",
+                                        "col": 12
+                                    },
+                                    "color": {
+                                        "name": "颜色",
+                                        "type": "color",
+                                        "default": "rgba(255,255,255,0.8)",
+                                        "col": 12
+                                    },
+                                    "line": {
+                                        "name": "类型",
+                                        "type": "select",
+                                        "options": [
+                                            {
+                                                "name": "下划线",
+                                                "value": "underline"
+                                            },
+                                            {
+                                                "name": "上划线",
+                                                "value": "overline"
+                                            },
+                                            {
+                                                "name": "删除线",
+                                                "value": "line-through"
+                                            }
+                                        ],
+                                        "default": "underline",
+                                        "col": 12
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "bg": {
+                "name": "背景",
+                "type": "group",
+                "fold": false,
+                "children": {
+                    "color": {
+                        "type": "number",
+                        "name": "颜色",
+                        "default": "rgba(9, 30, 58, 1)",
+                        "step": 1,
+                        "min": 0,
+                        "max": 100
+                    },
+                    "radius": {
+                        "type": "number",
+                        "name": "圆角",
+                        "default": "2",
+                        "step": 1,
+                        "min": 0,
+                        "max": 100
+                    },
+                    "border": {
+                        "name": "边框",
+                        "type": "group",
+                        "fold": false,
+                        "children": {
+                            "t": {
+                                "name": "t",
+                                "type": "group",
+                                "fold": false,
+                                "children": {
+                                    "color": {
+                                        "type": "number",
+                                        "name": "颜色",
+                                        "default": "rgba(255,255,255,0.3)",
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    },
+                                    "size": {
+                                        "type": "number",
+                                        "name": "大小",
+                                        "default": 1,
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    },
+                                    "style": {
+                                        "type": "number",
+                                        "name": "style",
+                                        "default": "solid",
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    }
+                                }
+                            },
+                            "b": {
+                                "name": "b",
+                                "type": "group",
+                                "fold": false,
+                                "children": {
+                                    "color": {
+                                        "type": "number",
+                                        "name": "颜色",
+                                        "default": "rgba(255,255,255,0.3)",
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    },
+                                    "size": {
+                                        "type": "number",
+                                        "name": "大小",
+                                        "default": 1,
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    },
+                                    "style": {
+                                        "type": "number",
+                                        "name": "style",
+                                        "default": "solid",
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    }
+                                }
+                            },
+                            "l": {
+                                "name": "l",
+                                "type": "group",
+                                "fold": false,
+                                "children": {
+                                    "color": {
+                                        "type": "number",
+                                        "name": "颜色",
+                                        "default": "rgba(255,255,255,0.3)",
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    },
+                                    "size": {
+                                        "type": "number",
+                                        "name": "大小",
+                                        "default": 1,
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    },
+                                    "style": {
+                                        "type": "number",
+                                        "name": "style",
+                                        "default": "solid",
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    }
+                                }
+                            },
+                            "r": {
+                                "name": "r",
+                                "type": "group",
+                                "fold": false,
+                                "children": {
+                                    "color": {
+                                        "type": "number",
+                                        "name": "颜色",
+                                        "default": "rgba(255,255,255,0.3)",
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    },
+                                    "size": {
+                                        "type": "number",
+                                        "name": "大小",
+                                        "default": 1,
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    },
+                                    "style": {
+                                        "type": "number",
+                                        "name": "style",
+                                        "default": "solid",
+                                        "step": 1,
+                                        "min": 0,
+                                        "max": 100
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "animation": {
+                "name": "动画",
+                "type": "group",
+                "fold": false,
+                "children": {
+                    "switch": {
+                        "name": "switch",
+                        "type": "group",
+                        "fold": false,
+                        "children": {
+                            "duration": {
+                                "type": "number",
+                                "name": "duration",
+                                "default": 0.8,
+                                "step": 1,
+                                "min": 0,
+                                "max": 100
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "animation": {}
+}

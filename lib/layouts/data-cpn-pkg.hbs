@@ -1,0 +1,68 @@
+{
+  "name": "@VISIX-UI/vi-"{{componentName}}"",
+  "version": "0.0.5",
+  "dependencies": {
+    "bcore": "0.0.18",
+    "jquery": "2.1.4",
+    "lodash": "4.6.1",
+    "visix-ui-joo": "0.0.81",
+    "vue": "3.2.38"
+  },
+  "datav": {
+    "cn_name": ""{{cnName}}"",
+    "protocol": 2,
+    "type": ["text"],
+    "view": {
+      "width": 300,
+      "height": 160,
+      "minWidth": "10",
+      "minHeight": "10"
+    },
+    "apis": {
+      "source": {
+        "handler": "render",
+        "description": "接口描述",
+        "fields": {
+          "value": {
+            "description": "",
+            "type": "string",
+            "optional": true
+          }
+        }
+      }
+    },
+    "config": {
+      "options": {
+        "name": "菜单",
+        "type": "menu",
+        "children": {
+          "style": {
+            "name": "全局配置",
+            "children": {}
+          },
+          "animation": {
+            "name": "动画配置",
+            "children": {}
+          },
+          "opt": {
+            "name": "选项配置",
+            "children": {}
+          }
+        }
+      }
+    },
+    "api_data": {
+      "source": [
+        {
+          "value": ""
+        }
+      ]
+    },
+    "events": {
+      "{{events}}"
+    },
+    "publicHandler": {
+      "{{publicHandler}}"
+    }
+  }
+}

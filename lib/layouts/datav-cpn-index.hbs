@@ -1,0 +1,195 @@
+var Event = require("bcore/event");
+var $ = require("jquery");
+var _ = require("lodash");
+
+const { createApp, reactive, ref } = require("vue");
+//引入组件及组件样式
+const { "{{importName}}" } = require("visix-ui-joo");
+require('visix-ui-joo/dist/themes/"{{themeFile}}".css');
+
+/**
+ * 马良基础类
+ */
+module.exports = Event.extend(
+  function Base(container, config) {
+    this.config = {
+      theme: {},
+    };
+    //容器
+    this.container = $(container);
+    //hook一定要有
+    this.apis = config.apis;
+    //数据
+    this._data = null;
+    //组件宽高
+    let width = this.container.outerWidth(),
+      height = this.container.outerHeight();
+    //vue实例
+    this.app = null;
+    this.refCpn = ref(null);
+    //组件props
+    this.cpnProps = reactive({
+      width: width + "px",
+      height: height + "px",
+    });
+    //创建uuid
+    this.uuid = `vi-${this.createUUID()}`;
+    //插入模板
+    this.container.append(this.template(this.cpnProps));
+    //初始化
+    this.init(config);
+  },
+  {
+    /**
+     * 公有初始化
+     */
+    init: function (config) {
+      //处理配置
+      this.setProps(this.mergeConfig(config));
+      //vue实例化
+      if (!this.app) this.initApp();
+    },
+
+    /**
+     * 绘制
+     * @param data
+     * @param options 不一定有
+     * !!注意: 第二个参数支持config, 就不需要updateOptions这个方法了
+     */
+    render: function (data, config) {
+      data = this.data(data);
+      //处理配置
+      this.setProps(this.mergeConfig(config));
+    },
+
+    /**
+     * resize
+     * @param width
+     * @param height
+     */
+    resize: function (width, height) {
+      //更新width、height
+      this.cpnProps.width = width + "px";
+      this.cpnProps.height = height + "px";
+    },
+
+    /**
+     * 数据,设置和获取数据
+     * @param data
+     * @returns {*|number}
+     */
+    data: function (data) {
+      if (data) {
+        this._data = data;
+      }
+      return this._data;
+    },
+
+    /**
+     * 更新配置
+     * 优先级: config.colors > config.theme > this.config.theme > this.config.colors
+     * [注] 有数组的配置一定要替换
+     * @param config
+     * @private
+     */
+    mergeConfig: function (config) {
+      if (!config) {
+        return this.config;
+      }
+      this.config = _.cloneDeep(config || {});
+      return this.config;
+    },
+
+    /**
+     * 销毁组件
+     */
+    destroy: function () {
+      this.app = null;
+    },
+
+    /**
+     * 生成uuid
+     */
+    createUUID: function () {
+      return "xxxxxxxx".replace(/[xy]/g, function (a) {
+        var b = 0 | (16 * Math.random()),
+          c = "x" == a ? b : 8 | (3 & b);
+        return c.toString(16);
+      });
+    },
+
+    /**
+     * 创建vue实例
+     */
+    initApp: function () {
+      const _this = this;
+      const app = createApp({
+        setup() {
+          "{{setup}}"
+        },
+      });
+      app.use("{{componentName}}");
+      app.mount(`#${this.uuid}`);
+      this.app = app;
+    },
+
+    /**
+     * 模板
+     */
+    template: function () {
+      return `<div id="${this.uuid}">
+        "{{template}}"
+      </div>`;
+    },
+
+    /**
+     * 设置props
+     */
+    setProps(config) {
+      const { style: styleProps, opt } = config.options;
+      const newOpt = Object.assign(
+        {},
+        opt,
+      );
+      const props = {
+        ...newOpt,
+        data: this.getData(),
+        styleProps: this.getStyle(styleProps),
+      };
+      Object.assign(this.cpnProps, props);
+    },
+
+
+    "{{events}}"
+
+    "{{publicHandler}}"
+
+
+    /**
+     * 处理data
+     */
+    getData() {
+      return this._data;
+    },
+
+    /**
+     * 处理style选项
+     */
+    getStyle(source) {
+      let r = {};
+      Object.keys(source).forEach((key) => {
+        const value = _.cloneDeep(source[key]);
+        if (typeof value === "object") {
+          let r2;
+          r2 = this.getStyle(value);
+          if (!Object.keys(r2).length) return;
+          r[key] = r2;
+        } else {
+          r[key] = value;
+        }
+      });
+      return r;
+    },
+
+  }
+);
