@@ -160,5 +160,24 @@
         "col": 12
       }
     }
+  },
+  "align": {
+    "name": "位置",
+    "type": "select",
+    "options": [
+      {
+        "name": "居左",
+        "value": "left"
+      },
+      {
+        "name": "居中",
+        "value": "center"
+      },
+      {
+        "name": "居右",
+        "value": "right"
+      }
+    ],
+    "default": "center"
   }
 }
