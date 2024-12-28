@@ -1,5 +1,7 @@
 module.exports = (stage) => {
-  const tool = (window.tool = stage.get("@Snxun_datav_sn-cp-tools_DFCVP").hook(stage));
+  const tool = (window.tool = stage
+    .get("@Snxun_datav_sn-cp-tools_DFCVP")
+    .hook(stage));
   window.Stage = stage;
   window.G = stage.get;
   window.ENV = "dev";
